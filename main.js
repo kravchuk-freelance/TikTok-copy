@@ -72,16 +72,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const paymentPopup = document.querySelector(".payment-popup");
+  const paymentPopup = document.querySelector(".paymentPopup");
+  const paymentProcessingPopup = document.querySelector(
+    ".paymentProcessingPopup"
+  );
+  const checkingSecurityPopup = document.querySelector(".checkingSecurityPopup");
   const payNowBtn = document.querySelector(".pay-now-btn");
   const paymentCoins = document.querySelector(".payment-coins");
   const paymentUser = document.querySelector(".payment-user");
   payNowBtn.addEventListener("click", () => {
-    rechargepopup.style.cssText = "display: none;";
-    paymentPopup.style.cssText = "display: flex;";
-    paymentCoins.textContent = walletPackageCoinNum;
-    paymentUser.textContent = accountName.value;
-    accountName.value = "";
+    paymentProcessingPopup.style.cssText = "display: flex;";
+    setTimeout(() => {
+      paymentProcessingPopup.style.cssText = "display: none;";
+      checkingSecurityPopup.style.cssText = "display: flex;";
+      setTimeout(()=>{
+        checkingSecurityPopup.style.cssText = "display: none;";
+        rechargepopup.style.cssText = "display: none;";
+        paymentPopup.style.cssText = "display: flex;";
+        paymentCoins.textContent = walletPackageCoinNum;
+        paymentUser.textContent = accountName.value;
+        accountName.value = "";
+      }, 2000);
+    }, 2000);
   });
 
   const closePopup = document.querySelectorAll(".close-popup");
