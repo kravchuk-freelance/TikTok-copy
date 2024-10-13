@@ -3787,6 +3787,7 @@ button[aria-label]:focus-visible {
   margin-left: 4px;
 }
 .tiktok-u0dc5a-DivRechargeCoins {
+  display: none;
   font-family: TikTokFont, Arial, Tahoma, PingFangSC, sans-serif;
   font-weight: 700;
   font-size: 16px;
@@ -4288,7 +4289,7 @@ button[aria-label]:focus-visible {
   min-width: 764px;
 }
 .tiktok-nhllv4 {
-  min-height: 696px;
+  min-height: 550px;
   min-width: 764px;
 }
 .tiktok-nhllv3 .TUXInputLabel span {
@@ -4634,6 +4635,7 @@ button[aria-label]:focus-visible {
   row-gap: 8px;
 }
 .tiktok-tad11f {
+  display: none;
   -moz-box-sizing: border-box;
        box-sizing: border-box;
   margin-block: 0px;
@@ -11944,6 +11946,61 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.tiktok-spinner {
+  --animation-duration: 1200ms;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+}
+
+.tiktok-spinner div {
+  width: 20px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0;
+  position: relative;
+}
+
+.tiktok-spinner div:nth-child(1) {
+  background: #fe2c55;
+  animation: clockwise var(--animation-duration) infinite linear;
+}
+
+.tiktok-spinner div:nth-child(2) {
+  mix-blend-mode: darken;
+  background: #25f4ee;
+  margin-left: -5px;
+  animation: counter-clockwise var(--animation-duration) infinite linear;
+}
+
+@keyframes clockwise {
+  0% {
+    transform: translateX(0);
+    width: 20px;
+  }
+  25% {
+    width: 25px;
+  }
+  50% {
+    transform: translateX(100%);
+    width: 20px;
+  }
+}
+@keyframes counter-clockwise {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+}
+
+
 .header {
   position: fixed;
   top: 0;
