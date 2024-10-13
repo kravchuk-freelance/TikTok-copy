@@ -11036,6 +11036,27 @@ body {
   .tiktok-l4v9n8-ButtonContainer {
     padding: 18px 10px 16px;
   }
+  .tiktok-8hslnp {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .tiktok-z8heoe {
+    margin: 0;
+  }
+  .tiktok-nhllv4,
+  .tiktok-nhllv3 {
+    min-width: 340px;
+    min-height: 90vh;
+  }
+  .tiktok-dn5ge6 {
+    min-width: auto;
+  }
+  .tiktok-1ff3op5 {
+    width: 100%;
+  }
+  .tiktok-j89f9w {
+    max-width: 100%;
+  }
 }
 
 @media screen and (max-height: 480px) and (orientation: landscape) {

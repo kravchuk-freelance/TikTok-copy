@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
   const totalPrice = document.querySelector(".wallet-total-price");
   const totalPriceSelected = document.querySelector(".wallet-package-selected");
   let totalPriceValue = totalPriceSelected.value;
@@ -67,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     if (accountNameValue.length > 0) {
       rechargepopup.style.cssText = "display: flex;";
+      body.style.cssText = "overflow: hidden;";
     } else {
       accountName.focus();
     }
@@ -82,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const paymentUser = document.querySelector(".payment-user");
   payNowBtn.addEventListener("click", () => {
     paymentProcessingPopup.style.cssText = "display: flex;";
+    body.style.cssText = "overflow: hidden;";
     setTimeout(() => {
       paymentProcessingPopup.style.cssText = "display: none;";
       checkingSecurityPopup.style.cssText = "display: flex;";
@@ -100,10 +103,12 @@ document.addEventListener("DOMContentLoaded", () => {
   closePopup.forEach((item) => {
     item.addEventListener("click", (e) => {
       e.currentTarget.closest(".popup").style.cssText = "display: none;";
+      body.style.cssText = "overflow: auto;";
     });
   });
   const goBackBtn = document.querySelector(".go-back-btn");
   goBackBtn.addEventListener("click", () => {
     cleanCustom();
+    body.style.cssText = "overflow: auto;";
   });
 });
