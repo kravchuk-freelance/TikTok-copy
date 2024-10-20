@@ -3,12 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalPrice = document.querySelector(".wallet-total-price");
   const totalPriceSelected = document.querySelector(".wallet-package-selected");
   let totalPriceValue = totalPriceSelected.value;
-  let totalCost = null;
   let walletPackageCoinNum = totalPriceSelected.querySelector(
     ".wallet-package-coin-num"
   ).textContent;
   const inputCustomNum = document.querySelector(".input-custom-num");
-  const coinPrice = 0.01056;
+  const coinPriceCoeff = 0.01056;
   const coinPriceInfo = document.querySelector(".coin-price-info");
   const coinPriceInfoValue = coinPriceInfo.textContent;
   function cleanCustom() {
@@ -17,11 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   inputCustomNum.addEventListener("input", (e) => {
     walletPackageCoinNum = e.target.value;
-    totalCost = `\$${Math.round((coinPrice * Number(e.target.value)).toFixed(2))}`;
-    coinPriceInfo.textContent = totalCost;
+    totalPriceValue = `${Math.round((coinPriceCoeff * Number(e.target.value)).toFixed(2))}`;
+    coinPriceInfo.textContent = `\$${totalPriceValue}`;
 
     totalPrice.setAttribute("value", totalPriceValue);
-    totalPrice.textContent = `${totalCost}`;
+    totalPrice.textContent = `\$${totalPriceValue}`;
   });
 
   let items = document.querySelectorAll(".wallet-coins-packages button");
@@ -106,9 +105,12 @@ document.addEventListener("DOMContentLoaded", () => {
       body.style.cssText = "overflow: auto;";
     });
   });
-  const goBackBtn = document.querySelector(".go-back-btn");
-  goBackBtn.addEventListener("click", () => {
-    cleanCustom();
-    body.style.cssText = "overflow: auto;";
+  const goBackBtn = document.querySelectorAll(".go-back-btn");
+  goBackBtn.forEach((item) => {
+    item.addEventListener("click", () => {
+      cleanCustom();
+      items[0].click();
+      body.style.cssText = "overflow: auto;";
+    });
   });
 });
