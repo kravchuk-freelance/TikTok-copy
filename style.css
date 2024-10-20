@@ -3899,6 +3899,7 @@ button[aria-label]:focus-visible {
   color: rgb(22, 24, 35);
   font-weight: 100;
   font-family: TikTokDisplayFont, Arial, Tahoma, PingFangSC, sans-serif;
+  font-weight: 700;
   font-size: 24px;
   line-height: 30px;
 }
@@ -12044,6 +12045,8 @@ body {
 }
 .wallet-package-selected .wallet-package-custom-inner.hidden {
   display: block;
+  opacity: 1;
+  visibility: visible;
 }
 .icon-check {
   width: 80px;

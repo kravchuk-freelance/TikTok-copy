@@ -3,11 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalPrice = document.querySelector(".wallet-total-price");
   const totalPriceSelected = document.querySelector(".wallet-package-selected");
   let totalPriceValue = totalPriceSelected.value;
+  let totalCost = null;
   let walletPackageCoinNum = totalPriceSelected.querySelector(
     ".wallet-package-coin-num"
   ).textContent;
   const inputCustomNum = document.querySelector(".input-custom-num");
-  const coinPrice = 1.06;
+  const coinPrice = 0.01056;
   const coinPriceInfo = document.querySelector(".coin-price-info");
   const coinPriceInfoValue = coinPriceInfo.textContent;
   function cleanCustom() {
@@ -16,14 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   inputCustomNum.addEventListener("input", (e) => {
     walletPackageCoinNum = e.target.value;
-    coinPriceInfo.textContent = `\$${(
-      coinPrice * Number(e.target.value)
-    ).toFixed(2)}`;
+    totalCost = `\$${Math.round((coinPrice * Number(e.target.value)).toFixed(2))}`;
+    coinPriceInfo.textContent = totalCost;
 
-    totalPriceValue = (coinPrice * Number(e.target.value)).toFixed(2);
     totalPrice.setAttribute("value", totalPriceValue);
-    totalPrice.textContent = `\$${totalPriceValue}`;
+    totalPrice.textContent = `${totalCost}`;
   });
+
   let items = document.querySelectorAll(".wallet-coins-packages button");
   for (const item of items) {
     item.addEventListener("click", (e) => {
